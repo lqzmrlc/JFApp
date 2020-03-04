@@ -1,0 +1,38 @@
+<ion-header>
+   <ion-toolbar>
+      <ion-buttons slot="start">
+         <img src="/assets/qrcode.png" />
+      </ion-buttons>
+      <ion-searchbar placeholder="请输入关键词" animated (tap)="goSearch()"></ion-searchbar>
+      <ion-buttons slot="end" class="message">
+         <img src="/assets/message.png" />
+         <ion-badge color="danger" class="badge">8</ion-badge>
+      </ion-buttons>
+   </ion-toolbar>
+</ion-header>
+<ion-content>
+   <ion-slides pager="true" #slide1 [options]="slidesOpts" (ionSlideTouchEnd)="slideTouchEnd()">
+      <ion-slide>
+         <img src="assets/5.png" />
+      </ion-slide>
+      <ion-slide>
+         <img src="assets/3.png" />
+      </ion-slide>
+      <ion-slide>
+         <img src="assets/5.png" />
+      </ion-slide>
+      <ion-slide>
+         <img src="assets/3.png" />
+      </ion-slide>
+   </ion-slides>
+   <br/>
+   <ion-list lines="full">
+      <ion-item *ngFor="let item of news" [ngClass]="{'active': item.id==selectedId}">
+         <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+   </ion-list>
+   <ion-infinite-scroll threshold="10%" (ionInfinite)="getNews($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+   </ion-infinite-scroll>
+</ion-content>

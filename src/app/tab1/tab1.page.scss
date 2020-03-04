@@ -1,0 +1,34 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+ion-slide{
+
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  img{
+    width: 100%;
+  }
+}
+
+
+.h_title{
+
+  padding: 1rem .5rem;
+  font-size: 1.4rem;
+
+  border-bottom:.05rem solid #eee;
+
+  &::before{
+
+    display: inline-block;
+    border-left: 3px solid #f53d3d;
+    height: 14px;
+    width: 1px;
+    content: "";
+    top: 2px;
+    position: relative;
+    
+  }
+
+}
